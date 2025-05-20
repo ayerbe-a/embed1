@@ -97,7 +97,8 @@ fn main() {
         };
         let tags = tags_by_family.get(family.name());
         let mut image_file = image_dir.to_path_buf();
-        image_file.push(exemplar.filename().to_string() + ".png");
+        let filename = exemplar.name().replace(" ", "_");
+        image_file.push(filename + ".png");
         if !image_file.is_file() {
             eprintln!("Missing {image_file:?}");
             continue;

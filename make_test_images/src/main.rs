@@ -53,7 +53,8 @@ fn svg(sample: &BezPath, viewbox: Rect) -> String {
 
 fn output_file(dir: &str, exemplar: &FontProto, ext: &str) -> PathBuf {
     let mut out_file = PathBuf::from(dir);
-    out_file.push(format!("{}{ext}", exemplar.filename()));
+    let filename = exemplar.name().replace(" ", "_");
+    out_file.push(format!("{}{ext}", filename));
     out_file
 }
 
